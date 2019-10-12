@@ -24,7 +24,7 @@ export default class FilterObject extends Component {
             ],
 
             userInput: '',
-            filteredEmployees: []
+            filteredEmployees: [],
 
         }
         
