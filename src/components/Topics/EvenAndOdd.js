@@ -3,18 +3,18 @@ import React, {Component} from 'react'
 export default class EvenAndOdd extends Component {
     constructor() {
         super ();
-            this.state = {
-                evenArray: [],
-                oddArray: [],
-                userInput: ''
-            }
+        this.state = {
+            evenArray: [],
+            oddArray: [],
+            userInput: ''
+        }
     }
 
     handleChange(val){
         this.setState({userInput: val})
     }
 
-    assignEvenAndodds(userInput){
+    assignEvenAndOdds(userInput){
         let arr = userInput.split(',');
         let evens = [];
         let odds = [];
@@ -27,17 +27,20 @@ export default class EvenAndOdd extends Component {
             }
 
         }
+        this.setState({evenArray: evens, oddArray: odds})
 
     }
     render (){
         return (
             <outline>
-                <div className="puzzleBox evenAndoddPB"></div>
-                <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value)}></input>
-                <button className="confirmationButton" onClick={ () => {this.assignEvenAndOdds(this.state.userInput)}}></button>
-                <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
-                <span className="resultsBox">Odds: {JSON.stringify(this.state.oddArray)}</span>
-                <h4>Even and odds</h4>
+                
+                <div className="puzzleBox evenAndOddPB">
+                    <h4>Even and odds</h4>
+                    <input className="inputLine" onChange={ (e) => this.handleChange(e.target.value)}></input>
+                    <button className="confirmationButton" onClick={ () => {this.assignEvenAndOdds(this.state.userInput)}}> Split</button>
+                    <span className="resultsBox">Evens: {JSON.stringify(this.state.evenArray)}</span>
+                    <span className="resultsBox">Odds: {JSON.stringify(this.state.oddArray)}</span>
+                </div>
             </outline>
         )
     }
